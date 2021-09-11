@@ -10,3 +10,37 @@
   margin-top: 0;
   font-size: 2rem;
 }
+
+.pizza-order {
+  margin-top: 2rem;
+  text-align: right;
+}
+.pizza-order__btn {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  border: none;
+  background: #e74c3c;
+  border-radius: 10px;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+}
+.pizza-order__btn:disabled {
+  background: #ccc;
+  color: #666;
+  cursor: not-allowed;
+}
+.pizza-order__btn:not(:disabled) {
+  will-change: transform;
+  animation: enable .5s forwards 2;
+}
+
+@keyframes enable {
+  0%,100% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(1.1);
+  }
+}
