@@ -1,0 +1,23 @@
+.btn {
+  display: inline-block;
+  margin: 0 .5rem;
+  cursor: pointer;
+  border: none;
+  background: #ccc;
+  padding: .5rem 1.5rem;
+  color: #000;
+  border-radius: 4px;
+  opacity: .8;
+  transition: .2s;
+}
+.btn:hover {
+  opacity: 1;
+}
+.btn-danger {
+  background: #e74c3c;
+  color: white;
+}
+.btn-success {
+  background: #34ad3c;
+  color: white;
+}

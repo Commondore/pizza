@@ -1,11 +1,13 @@
-import './Modal.css';
+import BackDrop from "../BackDrop/BackDrop";
+import "./Modal.css";
 
-function Modal({children, show}) {
+function Modal({ children, show, closed }) {
   return (
-    <div className={`modal ${show ? ' show' : ''}`}>
-      {children}
-    </div>
-  )
+    <>
+      <BackDrop show={show} clicked={closed} />
+      <div className={`modal ${show ? " show" : ""}`}>{children}</div>
+    </>
+  );
 }
 
-export default Modal
+export default Modal;

@@ -1,0 +1,23 @@
+.order-info__title {
+  margin-top: 0;
+  font-size: 1.4rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+.order-info__list {
+  margin: 1rem 0;
+
+}
+.order-info__item {
+  margin-bottom: .5rem;
+}
+.order-info__item span {
+  margin-right: .5rem;
+}
+.order-info__price {
+  margin: 1.5rem 0;
+  font-size: 1.1rem;
+}
+.order-info__price strong {
+  font-size: 1.2rem;
+}

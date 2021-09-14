@@ -1,5 +1,6 @@
 import {useState} from 'react';
 import Controls from '../../components/Pizza/Controls/Controls';
+import OrderInfo from '../../components/Pizza/OrderInfo/OrderInfo';
 import Pizza from '../../components/Pizza/Pizza';
 import Modal from '../../components/UI/Modal/Modal';
 
@@ -23,7 +24,7 @@ function PizzaBuilder() {
   );
   const [price, setPrice] = useState(100);
   const [purchasable, setPurchasable] = useState(false);
-  const [show, setShow] = useState(false);
+  const [purchasing, setPrchasing] = useState(false);
 
   const addIngredient = (type) => {
     const ingredientsCopy = {...ingredients};
@@ -60,17 +61,22 @@ function PizzaBuilder() {
     setPurchasable(() => count > 0);
   };
 
+  const purchaseCancelHandler = () => setPrchasing(false);
+
+  const purchaseContinueHandler = () => {
+    alert('Continue');
+  }
+
 
   return (
     <div className="pizza-wrap">
-      <Modal show={show}>
-        <h1>Hello Modal</h1>
-        <p>
-          Далеко-далеко за словесными горами в стране, гласных и согласных живут
-          рыбные тексты. Напоивший он меня великий семь курсивных? Повстречался
-          страну, подпоясал обеспечивает большого моей, текст сих путь ручеек
-          деревни над по всей языкового!
-        </p>
+      <Modal show={purchasing} closed={purchaseCancelHandler}>
+        <OrderInfo
+          ingredients={ingredients}
+          price={price}
+          purchaseCancelled={purchaseCancelHandler}
+          purchaseContinued={purchaseContinueHandler}
+        />
       </Modal>
       <Pizza ingredients={ingredients} />
       <Controls
@@ -79,7 +85,7 @@ function PizzaBuilder() {
         add={addIngredient}
         remove={removeIngredient}
         purchasable={purchasable}
-        purchase={() => setShow(true)}
+        purchase={() => setPrchasing(true)}
       />
     </div>
   );
