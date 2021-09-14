@@ -18,7 +18,6 @@ function Checkout(props) {
     for (let [key, value] of query.entries()) {
       ingredients[key] = parseInt(value);
     }
-    console.log(ingredients);
     setIngredients(ingredients);
   }, []);
 
@@ -32,6 +31,7 @@ function Checkout(props) {
       <CheckoutSummary
         ingredients={ingredients}
         cancel={checkoutCancel}
+        history={props.history}
       />
     </div>
   );

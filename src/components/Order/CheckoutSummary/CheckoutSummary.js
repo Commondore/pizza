@@ -1,7 +1,14 @@
+import ContactData from "../../../containers/Checkout/ContactData/ContactData";
 import Pizza from "../../Pizza/Pizza";
 import Button from "../../UI/Button/Button";
+import {Route} from 'react-router-dom';
 
-const CheckoutSummary = ({ ingredients, cancel }) => {
+const CheckoutSummary = ({ ingredients, cancel, history }) => {
+
+  const checkoutCountinue = () => {
+    history.replace("/checkout/contact-data");
+  }
+
   return (
     <>
       <Pizza ingredients={ingredients} />
@@ -13,8 +20,16 @@ const CheckoutSummary = ({ ingredients, cancel }) => {
           <Button type="btn-danger" clicked={cancel}>
             Отмена
           </Button>
-          <Button type="btn-success">Продолжить</Button>
+          <Button type="btn-success" clicked={checkoutCountinue}>
+            Продолжить
+          </Button>
         </div>
+        <Route
+          path="/checkout/contact-data"
+          render={(props) => (
+            <ContactData ingredients={ingredients} {...props} />
+          )}
+        />
       </div>
     </>
   );
