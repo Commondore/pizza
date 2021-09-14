@@ -1,0 +1,12 @@
+.checkout {
+  margin: 0 auto;
+  max-width: 1000px;
+  display: grid;
+  grid-template-columns: minmax(500px, 1fr) 1fr;
+}
+.checkout__title {
+  text-align: center;
+}
+.order-info__actions {
+  text-align: center;
+}

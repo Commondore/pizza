@@ -1,7 +1,7 @@
 import Pizza from "../../Pizza/Pizza";
 import Button from "../../UI/Button/Button";
 
-const CheckoutSummary = ({ ingredients }) => {
+const CheckoutSummary = ({ ingredients, cancel }) => {
   return (
     <>
       <Pizza ingredients={ingredients} />
@@ -10,7 +10,9 @@ const CheckoutSummary = ({ ingredients }) => {
           Подтвердите свой заказ
         </h1>
         <div className="order-info__actions" style={{ textAlign: "center" }}>
-          <Button type="btn-danger">Отмена</Button>
+          <Button type="btn-danger" clicked={cancel}>
+            Отмена
+          </Button>
           <Button type="btn-success">Продолжить</Button>
         </div>
       </div>

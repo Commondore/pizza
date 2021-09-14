@@ -13,7 +13,7 @@ const PRICES = {
   mushrooms: 65
 };
 
-function PizzaBuilder() {
+function PizzaBuilder(props) {
   const [ingredients, setIngredients] = useState(
     {
       cheese: 0,
@@ -64,7 +64,18 @@ function PizzaBuilder() {
   const purchaseCancelHandler = () => setPrchasing(false);
 
   const purchaseContinueHandler = () => {
-    alert('Continue');
+    const queryParams = Object.keys(ingredients).map((ingName) => {
+      return `${ingName}=${ingredients[ingName]}`;
+    });
+    // ['cheese=1', 'sausage=2' 'olives=0']
+
+    const queryString = queryParams.join("&");
+    // 'cheese=1&sausage=2&olives=0'
+
+    props.history.push({
+      pathname: "/checkout",
+      search: '?' + queryString
+    });
   }
 
 
