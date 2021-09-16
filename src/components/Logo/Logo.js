@@ -1,10 +1,10 @@
 import logo from './logo.png';
-import './Logo.css';
+import styles from './Logo.module.css';
 
 function Logo() {
   return (
-    <div className="logo">
-      <img className="logo__img" src={logo} alt="My pizza" />
+    <div className={styles.logo}>
+      <img className={styles.logo__img} src={logo} alt="My pizza" />
     </div>
   )
 }
